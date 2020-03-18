@@ -1,0 +1,3 @@
+
+Include videos in shiny
+https://community.rstudio.com/t/how-to-embed-videos-in-shiny/38937/2

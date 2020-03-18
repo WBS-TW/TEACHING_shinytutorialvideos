@@ -1,0 +1,109 @@
+---
+title: "Lab instructions"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Topic 1
+
+### Introduktion till Analysvetenskap och Forensik 
+
+*Vad innebär analysvetenskap*
+Titta noga igenom nedan video, besvara sedan frågorna för att kunna gå vidare. Fler än ett svar kan finnas.
+![](https://www.youtube.com/watch?v=u-0hmQicZco)
+
+### Fråga 1
+
+```{r Q1, echo=FALSE}
+question("Vilka är de huvudsakliga ämnen som programmet innefattar",
+  answer("Forensik", correct = TRUE),
+  answer("Statskunskap"),
+  answer("Analytisk kemi och relaterade ämnen", correct = TRUE),
+  answer("Kriminologi"),
+  random_answer_order = TRUE,
+  incorrect = "Fel, försök igen",
+  allow_retry = TRUE
+)
+```
+
+### Fråga 2
+
+```{r Q2, echo=FALSE}
+
+Q2_x <- sample(1:5, 1)
+
+question(sprintf("Hur många enheter går det på $%s$ mol?", Q2_x),
+  answer(sprintf("$%e$", Q2_x*6.022e+23), correct = TRUE),
+  answer(sprintf("$%e$", Q2_x*6.022e+23/2)),
+  answer(sprintf("$%e$", Q2_x*1.32e+10)),
+  answer(sprintf("$%e$", Q2_x*3e+5)),
+  random_answer_order = TRUE,
+  incorrect = "Fel, försök igen",
+  allow_retry = TRUE
+)
+
+```
+
+### Fråga 3
+```{r Q3, echo=FALSE}
+
+question_text("Vad heter programansvarig för analysvetenskapliga programmet i kemi?",
+              answer("Than Wan", message = "Nej!"),
+              answer("Thanh Wan", message = "Förnamn rätt, efternamn fel, försök igen"),
+              answer("Than Wang", message = "Förnamn fel, efternamn rätt!"),
+              answer("Thanh Wang", message = "Jaa!", correct = TRUE),
+              allow_retry = TRUE,
+              options = list(
+                placeholder = "Förnamn Efternamn",
+                trim = TRUE)
+)
+
+```
+
+
+
+## Topic 2
+
+### Exercise with Hint
+
+*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code to limit the number of rows printed to 5:
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+mtcars
+```
+
+```{r print-limit-hint}
+head(mtcars)
+```
+
+### Quiz
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Some questions to verify that you understand the purposes of various base and recommended R packages:
+
+```{r quiz}
+quiz(
+  question("Which package contains functions for installing other R packages?",
+    answer("base"),
+    answer("tools"),
+    answer("utils", correct = TRUE),
+    answer("codetools")
+  ),
+  question("Which of the R packages listed below are used to create plots?",
+    answer("lattice", correct = TRUE),
+    answer("tools"),
+    answer("stats"),
+    answer("grid", correct = TRUE)
+  )
+)
+```
+
