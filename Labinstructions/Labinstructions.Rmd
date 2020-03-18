@@ -1,16 +1,27 @@
 ---
 title: "Lab instructions"
-output: learnr::tutorial
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
+question_rank <- function(..., random_answer_order = TRUE, options = sortable::sortable_options()) {
+  learnr::question(
+    ...,
+    random_answer_order = random_answer_order,
+    type = "sortable_rank",
+    options = options
+  )
+}
 ```
 
 
-## Topic 1
+## Om programmet
 
 ### Introduktion till Analysvetenskap och Forensik 
 
@@ -66,6 +77,16 @@ question_text("Vad heter programansvarig för analysvetenskapliga programmet i k
 
 ```
 
+
+```{r sortable_question, echo = FALSE}
+rank_ex <- sortable::question_rank(
+  "Sort the first 5 letters",
+  learnr::answer(LETTERS[1:5], correct = TRUE),
+  learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
+  allow_retry = TRUE
+)
+rank_ex
+```
 
 
 ## Topic 2
